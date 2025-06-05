@@ -5,6 +5,7 @@
     "email": "emiliankasemi@gmail.com"
   },
   "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
+  "type": "module",
   "dependencies": {
     "ammo.js": "^0.0.10",
     "ammojs-typed": "^1.0.6",
@@ -18,10 +19,10 @@
     "gh-pages": "^6.3.0",
     "vite": "^4.3.1"
   },
+  "homepage": "https://qiqistudio.me",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   }
 }
