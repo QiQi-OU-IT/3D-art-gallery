@@ -1,27 +1,113 @@
-## 3D Art Gallery Tutorial using Three.js
+![Three.js](https://img.shields.io/badge/Three.js-black?style=for-the-badge&logo=three.js&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)
 
-I made this live coding tutorial about "how to create an interactive 3D Art Gallery using Three.js". This project is perfect for artists or designers to exhibit their artwork portfolios or projects. The full tutorial is almost 8 hours long, and is divided into parts. Please consider subscribing to my YouTube channel if you are interested.
 
-## HELP!
-First of all, use GitHub commits to mark our progress, so you can easily follow along and see the project evolve. So, to use the initial exact Three.js module I am using, go to "Commits" section of the GitHub repository and scroll down to the first commits, and download that version of the code, then step by step review and compare the other versions of the code. 
-If you don't know how to do that, follow these instructions:
 
-Go to my repository, click "commits", you will see all the commits list. Then scroll down to the first commit. On the right side of each commit name, you will see three small icons:
-- a code number --> which if you hover on it says "view commit details". 
-- a two square icon --> which if you hover says "view full SHA" 
-- '< >' this icon --> which if you hover on says "browse repository at this point". 
+## Giới thiệu dự án
 
-Click this last icon I mentioned, '< >'. You will be redirected to the exact point in time of this project. You can then download the repository as you normally do with the green button "Code". 
+Dự án triển lãm tranh 3D nhằm kỷ niệm **35 năm thành lập trường đại học Mở thành phố Hồ Chí Minh**
+(15/6/1990 - 15/6/2025)
 
-## UPDATE!
+## Tác giả dự án 
+- **Lê Việt Hải Quân** - [Email](mailto:2251052100quan@ou.edu.vn) - [Github](https://github.com/QiQi-OU-IT/)
+- **Emillian Kasemi**  - [Github](https://www.github.com/theringsofsaturn)
 
-Dear followers and enthusiasts,
+## Công nghệ sử dụng
 
-I've been made aware of an issue many of you faced regarding the floor and ceiling textures appearing black. After a thorough investigation, I've identified the root of the problem. The high-resolution 4K textures we recently introduced are relatively large files. To manage such large files, GitHub uses a system called Large File Storage (LFS). However, there's a storage quota associated with LFS, and it seems we've reached that limit. This led to the textures not being stored correctly, resulting in broken image links in the downloaded projects.
+- [Three.js](https://threejs.org/) – dựng không gian 3D
+- [Vite](https://vitejs.dev/) – công cụ build 
+- [Cloudinary](https://cloudinary.com/) – lưu trữ ảnh/audio online
+- `nipplejs`, `lil-gui`, `ammo.js`, `cannon.js`...
 
-The solution at the moment:  
-Download the 4K textures (or 2K /1K for better performance. I am currently using the 1K textures) and the 3D models yourself and add them in your project woth the correct path.
+## Tính năng nổi bật
 
+- Không gian triển lãm 3D tương tác
+- Hỗ trợ VR headset
+- Audio hướng dẫn
+- Joystick điều khiển cho mobile
+- Tải ảnh/audio lên Cloudinary qua mã nguồn
+
+## Hướng dẫn cài đặt và sử dụng
+
+1. **Clone dự án:**
+  ```bash
+  git clone https://github.com/QiQi-OU-IT/3D-art-gallery.git
+  ```
+
+2. **Cài đặt phụ thuộc:**
+      ```bash
+    npm install 
+    ```
+
+3. **Tạo file `.env` với các biến môi trường**
+  ```bash
+  CLOUDINARY_CLOUD_NAME=your_cloud_name
+  CLOUDINARY_API_KEY=your_api_key
+  CLOUDINARY_API_SECRET=your_api_secret
+    ```
+
+4. **Chạy thử dự án:**
+  ```bash
+  npx vite
+  ```
+5. **Truy cập trang web dự án có dạng:**
+```bash
+  VITE v4.3.1  ready in 1759 ms
+
+  ➜  Local:   http://123.4.5.6:7890/
+  ➜  Network: use --host to expose  ➜  press h to show help
+  ```
+### Cấu trúc dự án
+```
+  3d-art-gallery-threejs-master/
+  │
+  ├── 📁 .vite/                     # Cache Vite (tự động sinh)
+  ├── 📁 dist/                     # File đã build, dùng để deploy GitHub Pages
+  ├── 📁 node_modules/            # Thư viện đã cài bằng npm
+  ├── 📁 public/                  # Tài nguyên tĩnh (ảnh, mô hình, âm thanh...)
+  │   ├── 📁 artworks/              # Các ảnh tranh
+  │   ├── 📁 img/                   # Background, texture
+  │   ├── 📁 sounds/                # Nhạc nền, audio guide
+  │   ├── 📁 models/                # Mô hình 3D (GLTF, BIN)
+  │   └── ...
+  │
+  ├── 📁 modules/                # Toàn bộ mã nguồn xử lý trong Three.js
+  │   ├── audioGuide.js           # Âm thanh nền
+  │   ├── paintings.js            # Tạo tranh
+  │   ├── paintingData.js         # Dữ liệu tranh
+  │   ├── paintingInfo.js         # Tooltip / overlay tranh
+  │   ├── walls.js                # Tường + texture
+  │   ├── floor.js                # Tạo sàn gỗ
+  │   ├── ceiling.js              # Tạo trần
+  │   ├── rendering.js            # Vòng lặp render chính
+  │   ├── eventListeners.js       # Tương tác chuột/phím
+  │   ├── joystickControl.js      # Điều khiển joystick
+  │   ├── touchCameraControl.js   # Camera cảm ứng
+  │   ├── statue.js               # Load tượng 3D
+  │   └── ...
+  │
+  ├── .env                       # Biến môi trường (Cloudinary keys)
+  ├── .gitignore                 # Loại trừ file không đẩy lên Git
+  ├── index.html                 # HTML chính
+  ├── main.js                    # Điểm vào chính của app (import mọi thứ)
+  ├── style.css                  # CSS giao diện
+  ├── upload.js                  # Script upload ảnh lên Cloudinary
+  ├── upload_audio.js            # Script upload âm thanh lên Cloudinary
+  ├── vite.config.js             # Cấu hình Vite
+  │
+  ├── package.json               # Danh sách thư viện + script
+  ├── package-lock.json          # Khóa phiên bản
+  ├── README.md                  # Hướng dẫn sử dụng
+  └── LICENSE                    # (tuỳ chọn) Giấy phép MIT, CC...
+```
+## Giấy phép
+MIT License
+© 2025 QiQi-OU-IT. All rights reserved.
+
+## Các tuỳ chọn khác
+Một số vật liệu cho dự án
 The Office Ceiling material in 4K:
 https://ambientcg.com/view?id=OfficeCeiling005
 
@@ -33,57 +119,3 @@ https://polyhaven.com/a/leather_white
 
 3D Model Statue:
 https://sketchfab.com/3d-models/100kz11-aphrodite-kallipygos-statuette-c01ba617ec83491195146583b70e3df9
-
-## Installation
-
-You need Node.js installed on your computer.
-And VSCode as an Editor.
-Download link:
-
-- https://nodejs.org
-- https://code.visualstudio.com/Download
-
-After cloning, or downloading the zip file, on GitHub (green button `<> Code`) open your terminal, and run:
-
-```bash
-  npm install
-```
-
-to install all the dependencies.
-"node_modules" folder will appear at the left in the Explorer files in VsCode.
-
-Then run:
-
-```bash
-  npx vite
-```
-
-to run the local server.
-You'll see the URL address and the info help. Like for example:
-
-```bash
-  VITE v4.3.1  ready in 1759 ms
-
-  ➜  Local:   http://123.4.5.6:7890/
-  ➜  Network: use --host to expose  ➜  press h to show help
-```
-
-<img width="1717" alt="Screenshot 2024-03-23 at 23 03 41" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/8e7e4ae5-9b7a-4baa-849c-7f9c8eb349c8">
-
-<img width="1717" alt="Screenshot 2024-03-23 at 23 01 41" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/f37cf94d-cafc-42a3-9ab6-def46caa15fa">
-
-<img width="1722" alt="Screenshot 2024-03-23 at 20 16 09" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/04073dc7-56ae-468f-abee-2053e3c6f965">
-
-
-<img width="1722" alt="Screenshot 2024-03-22 at 18 51 31" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/fa5a0ec3-5879-4a01-bd67-f5abaefad6bf">
-
-
-
-
-## YouTube Video
-
-[Click here!](https://youtu.be/vfMizAmPprs)
-
-## Authors
-
-- [Emilian Kasemi](https://www.github.com/theringsofsaturn)

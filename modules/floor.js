@@ -5,7 +5,7 @@ export const setupFloor = (scene) => {
 
   // Load the textures (sửa lại đúng tên và định dạng PNG)
   const colorTexture = textureLoader.load(
-    "/WoodFloor040_4K-PNG/WoodFloor040_4K-PNG_Color.png"
+    "/WoodFloor040_4K-PNG/WoodFloor040_4K-PNG_Displacement.png"
   );
   const displacementTexture = textureLoader.load(
     "/WoodFloor040_4K-PNG/WoodFloor040_4K-PNG_Displacement.png"
@@ -28,19 +28,16 @@ export const setupFloor = (scene) => {
   const planeGeometry = new THREE.PlaneGeometry(45, 45);
   planeGeometry.attributes.uv2 = planeGeometry.attributes.uv; // cần thiết cho aoMap
 
-  const planeMaterial = new THREE.MeshStandardMaterial({
-    map: colorTexture,
-    displacementMap: displacementTexture,
-    normalMap: normalTexture,
-    roughnessMap: roughnessTexture,
-    aoMap: aoTexture,
-    displacementScale: 0.1,
-    side: THREE.DoubleSide,
-  });
+  const planeMaterial = new THREE.MeshBasicMaterial({
+    color: 0xffffff,
+  map: colorTexture,
+  side: THREE.DoubleSide,
+});
+
 
   const floorPlane = new THREE.Mesh(planeGeometry, planeMaterial);
   floorPlane.rotation.x = -Math.PI / 2;
-  floorPlane.position.y = -4; // sàn nằm ở y = 0
+  floorPlane.position.y = -8; // sàn nằm ở y = -6
 
   scene.add(floorPlane);
 };
