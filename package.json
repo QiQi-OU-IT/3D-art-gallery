@@ -1,15 +1,17 @@
 {
-  "repository": "https://github.com/theringsofsaturn/3D-art-gallery",
-  "author": {
-    "name": "Emilian Kasemi",
-    "email": "emiliankasemi@gmail.com"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theringsofsaturn/3D-art-gallery.git"
   },
+  "author": "Emilian Kasemi <emiliankasemi@gmail.com>",
   "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
   "type": "module",
   "dependencies": {
     "ammo.js": "^0.0.10",
     "ammojs-typed": "^1.0.6",
     "cannon": "^0.6.2",
+    "cloudinary": "^2.6.1",
+    "dotenv": "^16.5.0",
     "lil-gui": "^0.18.2",
     "nipplejs": "^0.10.2",
     "three": "^0.151.3",
@@ -24,5 +26,13 @@
     "dev": "vite",
     "build": "vite build",
     "deploy": "gh-pages -d dist"
+  },
+  "name": "3d-art-gallery-threejs-master",
+  "version": "1.0.0",
+  "description": "I made this live coding tutorial about \"how to create an interactive 3D Art Gallery using Three.js\". This project is perfect for artists or designers to exhibit their artwork portfolios or projects. The full tutorial is almost 8 hours long, and is divided into parts. Please consider subscribing to my YouTube channel if you are interested.",
+  "main": "main.js",
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/theringsofsaturn/3D-art-gallery/issues"
   }
 }

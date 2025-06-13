@@ -13,7 +13,7 @@ import { setupPlayButton } from "./modules/menu.js";
 import { setupAudio } from "./modules/audioGuide.js";
 import { clickHandling } from "./modules/clickHandling.js";
 import { setupVR } from "./modules/VRSupport.js";
-import { loadStatueModel } from "./modules/statue.js";
+// import { loadStatueModel } from "./modules/statue.js";
 import { loadBenchModel } from "./modules/bench.js";
 import { loadCeilingLampModel } from "./modules/ceilingLamp.js";
 import { setupTouchCameraControl } from "./modules/touchCameraControl.js";
